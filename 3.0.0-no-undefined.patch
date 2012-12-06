@@ -1,0 +1,25 @@
+--- origsrc/gtkspell3-3.0.0/gtkspell/Makefile.am	2012-10-31 17:23:44.000000000 -0500
++++ src/gtkspell3-3.0.0/gtkspell/Makefile.am	2012-12-06 02:00:27.484069900 -0600
+@@ -11,6 +11,7 @@ libgtkspell3_3_la_includedir=$(includedi
+ libgtkspell3_3_la_include_HEADERS = gtkspell.h
+ 
+ libgtkspell3_3_la_SOURCES = gtkspell.c gtkspell.h
++libgtkspell3_3_la_LDFLAGS = -no-undefined
+ libgtkspell3_3_la_LIBADD = @GTK_SPELL3_LIBS@
+ 
+ pkgconfig_DATA += gtkspell3-3.0.pc
+@@ -23,6 +24,7 @@ libgtkspell3_2_la_includedir=$(includedi
+ libgtkspell3_2_la_include_HEADERS = gtkspell.h
+ 
+ libgtkspell3_2_la_SOURCES = gtkspell.c gtkspell.h
++libgtkspell3_2_la_LDFLAGS = -no-undefined
+ libgtkspell3_2_la_LIBADD = @GTK_SPELL2_LIBS@
+ 
+ pkgconfig_DATA += gtkspell3-2.0.pc
+@@ -60,4 +62,4 @@ typelibdir = $(libdir)/girepository-1.0
+ typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+ 
+ CLEANFILES = $(gir_DATA) $(typelib_DATA)
+-endif
+\ No newline at end of file
++endif
