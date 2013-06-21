@@ -1,0 +1,41 @@
+--- origsrc/gtkspell3-3.0.3/configure.ac	2013-06-03 16:35:42.000000000 -0500
++++ src/gtkspell3-3.0.3/configure.ac	2013-06-20 22:09:30.863991600 -0500
+@@ -104,6 +104,18 @@ esac
+ AC_MSG_RESULT([$platform_win32])
+ AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = "yes")
+ 
++AC_MSG_CHECKING([for native Win32])
++case "$host" in
++  *-*-mingw*)
++    os_win32=yes
++    ;;
++  *)
++    os_win32=no
++    ;;
++esac
++AC_MSG_RESULT([$os_win32])
++AM_CONDITIONAL(OS_WIN32, test "$os_win32" = "yes")
++
+ dnl ******************************** iso-codes ********************************
+ AC_ARG_ENABLE([iso-codes],
+      AS_HELP_STRING([--enable-iso-codes], [enable iso-codes support (default is yes)]),
+--- origsrc/gtkspell3-3.0.3/gtkspell/Makefile.am	2013-05-31 05:08:58.000000000 -0500
++++ src/gtkspell3-3.0.3/gtkspell/Makefile.am	2013-06-20 22:09:43.640722400 -0500
+@@ -18,7 +18,7 @@ libgtkspell3_3_la_SOURCES = gtkspell.c g
+ if HAVE_ISO_CODES
+ libgtkspell3_3_la_SOURCES += gtkspell-codetable.c gtkspell-codetable.h
+ endif
+-if PLATFORM_WIN32
++if OS_WIN32
+ libgtkspell3_3_la_SOURCES += gtkspell-win32.c gtkspell-win32.h
+ endif
+ libgtkspell3_3_la_LIBADD = $(GTK_SPELL3_LIBS)
+@@ -37,7 +37,7 @@ libgtkspell3_2_la_SOURCES = gtkspell.c g
+ if HAVE_ISO_CODES
+ libgtkspell3_2_la_SOURCES += gtkspell-codetable.c gtkspell-codetable.h
+ endif
+-if PLATFORM_WIN32
++if OS_WIN32
+ libgtkspell3_2_la_SOURCES += gtkspell-win32.c gtkspell-win32.h
+ endif
+ libgtkspell3_2_la_LIBADD = $(GTK_SPELL2_LIBS)
