@@ -1,22 +1,27 @@
 inherit gnome2
 
 NAME="gtkspell3"
-VERSION=3.0.3
+VERSION=3.0.4
 RELEASE=1
-CATEGORY="Gnome"
+CATEGORY="Libs"
 SUMMARY="GTK3 spell correction widget library"
 DESCRIPTION="GtkSpell provides word-processor-style highlighting and
 replacement of misspelled words in a GtkTextView widget. Right-clicking
 a misspelled word pops up a menu of suggested replacements."
 HOMEPAGE="http://gtkspell.sourceforge.net/"
-SRC_URI="http://gtkspell.sourceforge.net/download/${P}.tar.gz"
-PATCH_URI="3.0.3-cygwin.patch  3.0.0-pkgconfig-reqs.patch"
+SRC_URI="http://gtkspell.sourceforge.net/download/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="
+	3.0.3-cygwin.patch
+"
 
-PKG_NAMES="lib${NAME}_3_0 lib${NAME}-common lib${NAME}-devel girepository-GtkSpell3.0 vala-gtkspell3"
+PKG_NAMES="lib${NAME}_3_0 lib${NAME}-common lib${NAME}-devel lib${NAME}-doc
+	   girepository-GtkSpell3.0 vala-gtkspell3"
 libgtkspell3_3_0_REQUIRES="libgtkspell3-common"
 libgtkspell3_3_0_CONTENTS="usr/bin/cyggtkspell3-3-0.dll"
 libgtkspell3_common_CONTENTS="usr/share/doc/ usr/share/locale/"
-libgtkspell3_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+libgtkspell3_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+libgtkspell3_doc_CATEGORY="Doc"
+libgtkspell3_doc_CONTENTS="usr/share/gtk-doc/"
 girepository_GtkSpell3_0_CONTENTS="usr/*/gir*/GtkSpell-3.0.*"
 vala_gtkspell3_CONTENTS="usr/share/vala/vapi/gtkspell3*"
 
