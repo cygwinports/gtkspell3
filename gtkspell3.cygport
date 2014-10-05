@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="gtkspell3"
-VERSION=3.0.4
+VERSION=3.0.6
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK3 spell correction widget library"
