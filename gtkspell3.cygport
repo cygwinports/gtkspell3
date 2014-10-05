@@ -16,7 +16,7 @@ PATCH_URI="
 
 PKG_NAMES="lib${NAME}_3_0 lib${NAME}-common lib${NAME}-devel lib${NAME}-doc
 	   girepository-GtkSpell3.0 vala-gtkspell3"
-libgtkspell3_3_0_REQUIRES="libgtkspell3-common"
+libgtkspell3_3_0_REQUIRES="libgtkspell3-common iso-codes"
 libgtkspell3_3_0_CONTENTS="usr/bin/cyggtkspell3-3-0.dll"
 libgtkspell3_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libgtkspell3_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
